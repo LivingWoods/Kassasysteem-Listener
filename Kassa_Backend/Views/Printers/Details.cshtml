@@ -1,0 +1,36 @@
+﻿@model Kassa_Backend.Models.Printer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Printer</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.printerNaam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.printerNaam)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.printerInterface)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.printerInterface)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.printerHuidigeTeller)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.printerHuidigeTeller)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.printerId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

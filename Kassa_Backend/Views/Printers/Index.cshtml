@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Kassa_Backend.Models.Printer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.printerNaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.printerInterface)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.printerHuidigeTeller)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.printerNaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.printerInterface)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.printerHuidigeTeller)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.printerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.printerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.printerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
