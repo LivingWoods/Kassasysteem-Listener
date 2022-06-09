@@ -17,6 +17,7 @@ namespace Kassa
 
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = String.Format("Host={0};Port={1};Database={2};Username={3};Password={4};", Environment.GetEnvironmentVariable("DATABASE_HOST"), Environment.GetEnvironmentVariable("DATABASE_PORT"), Environment.GetEnvironmentVariable("DATABASE_NAME"), Environment.GetEnvironmentVariable("DATABASE_USERNAME"), Environment.GetEnvironmentVariable("DATABASE_PASSWORD"));
             services.AddCors(options =>
             {
                 options.AddPolicy(
@@ -37,7 +38,7 @@ namespace Kassa
             services.AddDbContext<ApplicationDbContext>(
                 options => options
                                 //.UseLazyLoadingProxies()
-                                .UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
+                                .UseNpgsql(connectionString)
             );
 
             services.AddSwaggerGen(
